@@ -1,0 +1,35 @@
+Name:                host-sink
+Version:             0.1.0.0
+Synopsis:            Generate host sinkholes
+Description:
+            Generates compatible hosts and unbound.conf local-data
+            entries for inclusion locally or in an unbound resolver.
+License:             AGPL-3
+License-file:        LICENSE
+Author:              Edward Tjörnhammar
+Maintainer:          ed@cflags.cc
+Category:            System
+Build-type:          Simple
+Cabal-version:       >=1.6
+
+Executable host-sink
+  Main-is:         HostSink.hs
+  Hs-source-dirs:  src/main/haskell
+  Ghc-options:       -fwarn-tabs -Werror -Wall -threaded -O2
+  Build-depends:     attoparsec
+                   , base
+                   , bytestring
+                   , filepath
+                   , directory
+                   , lens
+                   , wreq
+                   , unordered-containers
+                   , optparse-applicative
+                   , ini
+                   , text
+                   , split
+  Other-modules:   HostSink.CLI
+                   HostSink.Config
+                   HostSink.Fetcher
+                   HostSink.Format
+                   HostSink.Parse

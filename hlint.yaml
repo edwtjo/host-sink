@@ -1,0 +1,18 @@
+- functions:
+  - {name: trace, within: []}
+  - {name: traceShow, within: []}
+  - {name: traceShowId, within: []}
+  - {name: unsafePerformIO, within: []}
+
+- error: { lhs: a <=< b
+         , rhs: b >=> a
+         , name: "Left to right monad operations" }
+- error: { lhs: a =<< b
+         , rhs: b >>= a
+         , name: "Left to right monad operations" }
+- error: { lhs: "(a =<<)"
+         , rhs: "(>>= a)"
+         , name: "Left to right monad operations" }
+- error: { lhs: "(a >> b)"
+         , rhs: "(do a; b;)"
+         , name: "Use do-notation" }
